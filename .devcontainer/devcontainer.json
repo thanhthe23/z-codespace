@@ -1,0 +1,11 @@
+{
+  "name": "Zephyr Build Codespace",
+  "image": "ghcr.io/zephyrproject-rtos/zephyr-build:main",
+  "workspaceFolder": "/workdir",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/install-script:2": {
+      "script": "wget --no-check-certificate --post-data 'accept_license_agreement=accepted' --content-disposition 'https://www.segger.com/downloads/jlink/JLink_Linux_V852_x86_64.tgz' -O /tmp/JLink_Linux_V852_x86_64.tgz && mkdir -p /opt/SEGGER && tar -xzf /tmp/JLink_Linux_V852_x86_64.tgz -C /opt/SEGGER && rm /tmp/JLink_Linux_V852_x86_64.tgz && echo 'export PATH=/opt/SEGGER/JLink:$PATH' > /etc/profile.d/jlink.sh && chmod +x /etc/profile.d/jlink.sh && echo 'J-Link 8.52 installed and PATH updated.'"
+    }
+  },
+  "postCreateCommand": "echo 'Zephyr Build Codespace ready.'"
+}
